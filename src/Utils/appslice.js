@@ -11,5 +11,5 @@ const appslice = createSlice({
     },
   },
 });
-export const{toggleMEnu}=appslice.actions
-export appslice.reducer;
+export const { toggleMEnu } = appslice.actions;
+export default appslice.reducer;
