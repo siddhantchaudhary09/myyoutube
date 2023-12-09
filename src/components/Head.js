@@ -6,6 +6,7 @@ import { youtube_search_api } from "../Utils/Constants";
 const Head = () => {
   const dispacth = useDispatch();
   const [suggestions, setsuggestions] = useState([]);
+  const [showsuggestions, setshowsuggestions] = useState(false);
 
   const toggleMEnuhandler = () => {
     dispacth(toggleMEnu());
@@ -25,7 +26,6 @@ const Head = () => {
     const data = await fetch(youtube_search_api + searchquery);
     const json = await data.json();
     setsuggestions(json[1]);
-    console.log(suggestions);
   };
 
   return (
@@ -51,20 +51,24 @@ const Head = () => {
             type="text "
             value={searchquery}
             onChange={(e) => setsearchquery(e.target.value)}
+            onFocus={() => setshowsuggestions(true)}
+            onBlur={() => setshowsuggestions(false)}
           />
           <button className=" border border-gray-400 bg-gray-600 text-white rounded-r-full p-2">
             Search
           </button>
         </div>
-        <div className="fixed  bg-white rounded-lg shadow-lg py-2  w-[427px] border border-gray-100">
-          <ul>
-            {suggestions.map((s) => (
-              <li key={s} className="hover:bg-gray-100 px-5">
-                🔍 {s}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {showsuggestions && (
+          <div className=" absolute bg-white rounded-lg shadow-lg   w-[427px] border border-gray-100">
+            <ul>
+              {suggestions.map((s) => (
+                <li key={s} className="hover:bg-gray-100 px-5 py-1.5 shadow-sm">
+                  🔍 {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className=" col-span-1">
