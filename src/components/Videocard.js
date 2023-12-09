@@ -4,7 +4,7 @@ const Videocard = ({ info }) => {
   const { snippet } = info;
   const { channelTitle, title, thumbnails } = snippet;
   return (
-    <div className="p-2 m-2 w-72 shadow-lg">
+    <div className="p-2 m-2 w-64 shadow-lg">
       {
         <img
           alt="thumbnail"
@@ -13,7 +13,7 @@ const Videocard = ({ info }) => {
         />
       }
       <ul>
-        <li>{title}</li>
+        <li className="font-bold">{title}</li>
         <li>{channelTitle}</li>
       </ul>
     </div>
