@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMEnu } from "../Utils/appslice";
-
+import { useEffect } from "react";
+import { youtube_search_api } from "../Utils/Constants";
 const Head = () => {
   const dispacth = useDispatch();
+  const [suggestions, setsuggestions] = useState([]);
 
   const toggleMEnuhandler = () => {
     dispacth(toggleMEnu());
+  };
+  const [searchquery, setsearchquery] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchsuggestions();
+    }, 200);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchquery]);
+
+  const searchsuggestions = async () => {
+    const data = await fetch(youtube_search_api + searchquery);
+    const json = await data.json();
+    setsuggestions(json[1]);
+    console.log(suggestions);
   };
 
   return (
@@ -25,15 +44,29 @@ const Head = () => {
         />
       </div>
 
-      <div className=" flex col-span-10 px-20">
-        <input
-          className="w-1/2 border-r-0 border border-gray-400 rounded-l-full px-6"
-          type="text "
-        />
-        <button className=" border border-gray-400 bg-gray-600 text-white rounded-r-full p-2">
-          Search
-        </button>
+      <div className="  col-span-10 px-20">
+        <div>
+          <input
+            className="w-1/2 border-r-0 border border-gray-400 rounded-l-full px-6 py-2"
+            type="text "
+            value={searchquery}
+            onChange={(e) => setsearchquery(e.target.value)}
+          />
+          <button className=" border border-gray-400 bg-gray-600 text-white rounded-r-full p-2">
+            Search
+          </button>
+        </div>
+        <div className="fixed  bg-white rounded-lg shadow-lg py-2  w-[427px] border border-gray-100">
+          <ul>
+            {suggestions.map((s) => (
+              <li key={s} className="hover:bg-gray-100 px-5">
+                🔍 {s}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
+
       <div className=" col-span-1">
         <img
           className=" h-10"
