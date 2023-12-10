@@ -41,7 +41,7 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-4 m-2 shadow-lg cursor-pointer sticky top-0 bg-white">
+    <div className="grid grid-flow-col p-4 m-2 shadow-lg cursor-pointer sticky top-0 bg-white ">
       <div className=" flex col-span-1">
         <img
           onClick={() => toggleMEnuhandler()}
