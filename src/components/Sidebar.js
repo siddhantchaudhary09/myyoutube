@@ -7,7 +7,7 @@ const Sidebar = () => {
 
   if (!isMenuOpen) return null;
   return (
-    <div className="m-2 p-2 w-[150px] shadow-lg cursor-pointer">
+    <div className="m-2 p-2 w-[150px] shadow-lg cursor-pointer ">
       <ul>
         <li>
           {" "}

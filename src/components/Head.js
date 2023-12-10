@@ -1,21 +1,28 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMEnu } from "../Utils/appslice";
 import { useEffect } from "react";
 import { youtube_search_api } from "../Utils/Constants";
+import { addcache } from "../Utils/searchslice";
 const Head = () => {
   const dispacth = useDispatch();
   const [suggestions, setsuggestions] = useState([]);
   const [showsuggestions, setshowsuggestions] = useState(false);
+  const [searchquery, setsearchquery] = useState("");
+
+  const searchcache = useSelector((store) => store.search);
 
   const toggleMEnuhandler = () => {
     dispacth(toggleMEnu());
   };
-  const [searchquery, setsearchquery] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      searchsuggestions();
+      if (searchcache[searchquery]) {
+        setsuggestions(searchcache[searchquery]);
+      } else {
+        searchsuggestions();
+      }
     }, 200);
     return () => {
       clearTimeout(timer);
@@ -26,6 +33,11 @@ const Head = () => {
     const data = await fetch(youtube_search_api + searchquery);
     const json = await data.json();
     setsuggestions(json[1]);
+    dispacth(
+      addcache({
+        [searchquery]: json[1],
+      })
+    );
   };
 
   return (
