@@ -7,10 +7,9 @@ const Sidebar = () => {
 
   if (!isMenuOpen) return null;
   return (
-    <div className="m-2 p-2 w-[150px] shadow-lg cursor-pointer ">
-      <ul>
+    <div className="m-2 p-2 w-[135rem] shadow-lg cursor-pointer  ">
+      <ul className="">
         <li>
-          {" "}
           <Link to={"/"}> Home</Link>
         </li>
         <li>Shorts</li>

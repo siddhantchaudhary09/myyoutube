@@ -41,7 +41,7 @@ const Head = () => {
   };
 
   return (
-    <div className="grid grid-flow-col p-4 m-2 shadow-lg cursor-pointer sticky top-0 bg-white ">
+    <div className="grid grid-flow-col p-4  shadow-lg cursor-pointer sticky top-0 bg-white ">
       <div className=" flex col-span-1">
         <img
           onClick={() => toggleMEnuhandler()}
@@ -49,11 +49,14 @@ const Head = () => {
           alt="menu"
           src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg"
         />
-        <img
-          className="h-8 mx-2"
-          alt="logo"
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
-        />
+        <a href="/">
+          {" "}
+          <img
+            className="h-8 mx-2"
+            alt="logo"
+            src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+          />
+        </a>
       </div>
 
       <div className="  col-span-10 px-20">
