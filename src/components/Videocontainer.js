@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Youtube_api } from "../Utils/Constants";
 import Videocard from "./Videocard";
 import { Link } from "react-router-dom";
-import Shimmer from "./Shimmer";
 
 const Videocontainer = () => {
   const [Videos, setVideos] = useState([]);
