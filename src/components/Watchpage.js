@@ -51,8 +51,8 @@ const Watchpage = () => {
 
         <div>
           <div className="flex flex-col-reverse w-full border border-black ml-2 bg-gray-200 overflow-y-scroll h-[600px] ">
-            {messagesslices.map((msg) => (
-              <Livechat name={msg.name} message={msg.Message} />
+            {messagesslices.map((msg, i) => (
+              <Livechat name={msg.name} key={i} message={msg.Message} />
             ))}
           </div>
           <div className=" border border-black ml-2 p-2">
