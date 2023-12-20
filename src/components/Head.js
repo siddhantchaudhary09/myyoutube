@@ -54,7 +54,7 @@ const Head = () => {
           <img
             className="h-8 mx-2"
             alt="logo"
-            src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/059df0b4-8444-4b77-a472-0e70e7f33255/dero1o2-283777bf-e9d2-4a15-bc1d-af4a6f6a7639.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA1OWRmMGI0LTg0NDQtNGI3Ny1hNDcyLTBlNzBlN2YzMzI1NVwvZGVybzFvMi0yODM3NzdiZi1lOWQyLTRhMTUtYmMxZC1hZjRhNmY2YTc2MzkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.N5_0OfFYf2BnQyoLhmj0BjmjJlwegjB2nMGJ55MkYKg"
           />
         </a>
       </div>
